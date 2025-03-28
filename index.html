@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignalR Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Optional: Use SignalR CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signalr/2.4.3/jquery.signalR.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>SignalR Chat</h1>
+        
+        <!-- Tabs for Navigation -->
+        <div class="tabs">
+            <button id="tabConnectionId" class="tablink active">Connection ID Chat</button>
+            <button id="tabGroupChat" class="tablink">Group Chat</button>
+        </div>
+        
+        <!-- Connection ID Chat Tab -->
+        <div id="connectionTab" class="tabcontent active">
+            <h2>Chat with Connection ID</h2>
+            
+            <!-- Connection ID Display -->
+            <div>
+                <div>Connection Id:</div>
+                <div><span id="connectionId">Connecting...</span></div>
+            </div>
+
+            <!-- Username and Message Inputs -->
+            <div>
+                <div>User:</div>
+                <div><input type="text" id="userInput" placeholder="Enter your username" /></div>
+            </div>
+            <div>
+                <div>Message:</div>
+                <div><input type="text" id="messageInput" placeholder="Type a message" /></div>
+            </div>
+
+            <!-- Receiver ID Input -->
+            <div>
+                <div>Receiver Id (Optional):</div>
+                <div><input type="text" id="receiverId" placeholder="Receiver's connection id" /></div>
+            </div>
+
+            <!-- Message Sending Buttons -->
+            <div class="center-text">
+                <input type="button" id="sendToUser" value="Send Message to User" disabled />
+                <input type="button" id="sendButton" value="Send Message to All" disabled />
+            </div>
+
+            <!-- Chat Display -->
+            <div><hr /></div>
+            <div>
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+
+        <!-- Group Chat Tab -->
+        <div id="groupTab" class="tabcontent">
+            <h2>Group Chat</h2>
+            
+            <div>
+                <input type="text" id="groupUserName" placeholder="Enter User name" />
+                <br>
+                <input type="text" id="groupName" placeholder="Enter group name" />
+                <button onclick="joinGroup()">Join Group</button>
+                <br>
+                <textarea id="message" placeholder="Enter message"></textarea>
+                <button onclick="sendGroupMessage()">Send Message</button>
+            </div>
+
+             <!-- Chat Display -->
+             <div><hr /></div>
+             <div>
+                 <ul id="messagesGroupList"></ul>
+             </div>
+        </div>
+    </div>
+
+    <!-- SignalR JavaScript -->
+<!--  <script src="https://unpkg.com/@microsoft/signalr@8.0.0/dist/browser/signalr.min.js"></script> -->
+    <script src="chat.js"></script>
+</body>
+</html>
